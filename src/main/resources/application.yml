@@ -1,0 +1,23 @@
+
+server:
+  port: ${SERVER_PORT:8082}
+spring:
+  application:
+    name: Demo #Demo
+  profiles:
+    active: ${SPRING_PROFILE:local}
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/demo}
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:postgres}
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+    servlet.multipart.max-file-size:  500KB
+    servlet.multipart.max-request-size: 500KB
